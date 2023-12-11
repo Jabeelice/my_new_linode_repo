@@ -1,0 +1,60 @@
+{
+  "approvalConfiguration": "resume",
+  "folder": "WIN",
+  "highRiskStatisticMethod": "COUNT",
+  "highRiskStatisticPeriod": "WEEK",
+  "highRiskThreshold": 5,
+  "node": "Jabee_Windows_COPY",
+  "owner": "bucekpet",
+  "priority": "0",
+  "processingType": "TASK",
+  "serverNodeType": "WINDOWS",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "OK"
+  ],
+  "taskType": "SH",
+  "processingCommand": {
+    "script": "sleep 30\n"
+  },
+  "actions": 
+  [
+    {
+      "processingActionType": "RESUME",
+      "processingEventCategory": "PROCESSING",
+      "processingEventType": "PROCESSING_HOLD",
+      "processingCommand": {
+        "actionTargetType": "SELF",
+        "keepForcedStatus": true,
+        "restartType": "RESTART_FROM_BEGINNING"
+      }
+    }
+  ],
+  "dependencies": 
+  [
+    {
+      "dependencyType": "RESOURCE",
+      "name": "${New_Semaphore}",
+      "processingStatus": "COMPLETED",
+      "processingType": "TASK",
+      "resource": "${New_Semaphore}",
+      "resourceType": "BINARY_SEMAPHORE",
+      "semaphoreState": "ON",
+      "serverNodeType": "WINDOWS",
+      "taskType": "SH"
+    },
+    {
+      "dependencyType": "RESOURCE",
+      "name": "Friday",
+      "processingStatus": "COMPLETED",
+      "processingType": "TASK",
+      "resource": "Friday",
+      "resourceType": "TIME_SEMAPHORE",
+      "semaphoreState": "ON",
+      "serverNodeType": "WINDOWS",
+      "taskType": "SH"
+    }
+  ]
+}

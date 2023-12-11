@@ -1,0 +1,35 @@
+{
+  "folder": "WIN",
+  "highRiskStatisticMethod": "PERCENT",
+  "highRiskStatisticPeriod": "WEEK",
+  "highRiskThreshold": 5,
+  "node": "Jabee_Windows",
+  "owner": "bucekpet",
+  "priority": "0",
+  "processingType": "TASK",
+  "serverNodeType": "WINDOWS",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "OK"
+  ],
+  "taskType": "SH",
+  "processingCommand": {
+    "script": "timeout 30\ndir"
+  },
+  "dependencies": 
+  [
+    {
+      "dependencyType": "RESOURCE",
+      "name": "Thursday",
+      "processingStatus": "COMPLETED",
+      "processingType": "TASK",
+      "resource": "Thursday",
+      "resourceType": "TIME_SEMAPHORE",
+      "semaphoreState": "ON",
+      "serverNodeType": "WINDOWS",
+      "taskType": "SH"
+    }
+  ]
+}
